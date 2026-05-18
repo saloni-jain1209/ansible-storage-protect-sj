@@ -88,15 +88,3 @@
         src: /tsminst1/cert256.arm
         dest: /tmp/
         flat: yes
-
-- name: Distribute certificate to clients.
-  hosts: server3
-  gather_facts: no
-  tasks:
-    - name: Copy the certificate to the client machine.
-      copy:
-        src: "/tmp/cert256.arm"
-        dest: /opt/tivoli/tsm/client/ba/bin/
-        owner: root
-        group: root
-        mode: '0644'
