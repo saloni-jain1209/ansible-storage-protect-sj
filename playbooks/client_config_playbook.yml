@@ -1,14 +1,15 @@
 ---
-- name: Copy the certificate from the IBM Storage Protect server
-  hosts: server1
-  become: yes
-
+- name: Distribute certificate to clients.
+  hosts: server3
+  gather_facts: no
   tasks:
-    - name: Fetch the certificate file
-      fetch:
-        src: /tsminst1/cert256.arm
-        dest: /tmp/
-        flat: yes
+    - name: Copy the certificate to the client machine.
+      copy:
+        src: "/tmp/cert256.arm"
+        dest: /opt/tivoli/tsm/client/ba/bin/
+        owner: root
+        group: root
+        mode: '0644'
         
 - name: Create dsm.sys file with TSM configuration
   hosts: server3
