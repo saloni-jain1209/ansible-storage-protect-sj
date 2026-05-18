@@ -69,7 +69,7 @@
 
 - name: Finding SP Server binary locally
   ansible.builtin.find:
-    paths: "{{ sp_server_bin_repo }}"
+    paths: "/jenkins/workspace/Sp-Omni-pipelines/omni-cd-pipeline-SDDEVOPS-2307/spdrivers/spdrivers/sp-server"
     patterns: "{{ sp_server_version }}*.bin"
   register: file_status
   when: sp_server_individual_component_name is not defined
