@@ -30,10 +30,10 @@
 
     # Transfer binary to the remote machines only if it doesn't exist
     - name: Transferring the binary to the remote host
-      ansible.builtin.synchronize:
+      ansible.builtin.copy:
         src: "{{ sp_server_binary_file_path }}"
-        dest: "{{ sp_server_temp_dest }}"
-        mode: push
+        dest: "{{ sp_server_temp_dest }}/{{ sp_server_binary_file_path | basename }}"
+        mode: "0755"
       register: copy_result
       when: not remote_binary_stat.stat.exists
 

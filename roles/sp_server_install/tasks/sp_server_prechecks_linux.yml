@@ -75,6 +75,15 @@
   when: sp_server_individual_component_name is not defined
   delegate_to: localhost
 
+- name: Print SP Server binary path info
+  ansible.builtin.debug:
+    msg: |
+      ============================================================
+        Repository  : {{ sp_server_bin_repo }}
+        Component   : {{ sp_server_individual_component_name }}
+        Full Path   : {{ sp_server_bin_repo }}/{{ sp_server_individual_component_name }}
+      ============================================================
+
 - name: Find SP Server binary when individual component is specified
   ansible.builtin.find:
     paths: "{{ sp_server_bin_repo }}/{{ sp_server_individual_component_name }}"
