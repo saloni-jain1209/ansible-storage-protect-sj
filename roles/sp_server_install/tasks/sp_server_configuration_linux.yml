@@ -80,7 +80,7 @@
             owner: "{{ tsm_user }}"
             group: "{{ tsm_group }}"
             mode: "0644"
-          remote_src: true
+            remote_src: true
 
         - name: Configuring server options
           ansible.builtin.lineinfile:
