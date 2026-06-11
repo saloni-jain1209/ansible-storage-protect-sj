@@ -17,7 +17,7 @@
   ansible.builtin.meta: end_play
   when: ba_client_check is defined and ba_client_check.rc == 0 and ba_client_action == "install"
 
-# ================= Pre-checks ==========================
+# ================= Pre-checks ==========================x
 
 # System Compatibility checks for installing the ba client ( Pre-checks )
 - name: Checking architecture compatibility
@@ -84,7 +84,7 @@
 
 # transfer files to the remote machines
 - name: Transferring the packages on the remote host
-  ansible.posix.synchronize:
+  ansible.builtin.copy:
     src: "{{ tar_file_path }}"
     dest: "{{ ba_client_temp_dest }}"
   when: architecture_compatible and avail_disk_space
