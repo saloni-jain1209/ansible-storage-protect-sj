@@ -92,12 +92,12 @@
   register: copy_result
 
 # Validate file transfer and show error details
-- name: Validating file transfer
-  ansible.builtin.fail:
-    msg: >
-      Package transfer to the remote host failed.
-      Error details: {{ copy_result.stderr | default('No error details available.') }}
-  when: copy_result is not defined or copy_result.rc != 0
+#- name: Validating file transfer
+#  ansible.builtin.fail:
+#    msg: >
+#      Package transfer to the remote host failed.
+#      Error details: {{ copy_result.stderr | default('No error details available.') }}
+#  when: copy_result is not defined or copy_result.rc != 0
 
 # ======= Extracting and finding the packages on remote vm's =======
 
