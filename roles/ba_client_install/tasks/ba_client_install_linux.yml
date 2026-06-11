@@ -87,6 +87,7 @@
   ansible.builtin.copy:
     src: "{{ tar_file_path }}"
     dest: "{{ ba_client_temp_dest }}"
+    mode: "0755"
   when: architecture_compatible and avail_disk_space
   register: copy_result
 
