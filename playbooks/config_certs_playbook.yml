@@ -20,7 +20,7 @@
   vars:
     gsk8_bin_path: "/usr/local/ibm/gsk8_64/bin/gsk8capicmd_64"
     cert_db_path: "/tsminst1/cert.kdb"
-    tsm_base_path: "/cba/components/tsm/8.2.00.000/tsm/tools/gskit"
+    tsm_base_path: "/cba/components/tsm/8.2.0.000/tsm/tools/gskit"
     temp_dir: "/tmp/{{ ansible_date_time.epoch }}-0"
     old_cert_label: "TSM Server SelfSigned SHA Key"
     root_ca_label: "SP Root CA Cert"
