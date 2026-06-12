@@ -25,16 +25,16 @@
     old_cert_label: "TSM Server SelfSigned SHA Key"
     root_ca_label: "SP Root CA Cert"
     inter_ca_label: "SP Intermediate CA Cert"
-    new_cert_label: "BONJOVI-VM166 SP CA Signed Cert"
+    new_cert_label: "BONJOVI-VM170 SP CA Signed Cert"
     root_ca_file: "{{ tsm_base_path }}/root_ca.crt"
     inter_ca_file: "{{ tsm_base_path }}/inter_ca.crt"
     ca_p12_path: "{{ tsm_base_path }}/ca.p12"
     ca_password: "sp3ctrumpr0tect"
     cert_expire_days: 7300
-    hostname_fqdn: "bonjovi-vm166.storage.tucson.ibm.com"
-    hostname_short: "bonjovi-vm166"
+    hostname_fqdn: "bonjovi-vm170.storage.tucson.ibm.com"
+    hostname_short: "bonjovi-vm170"
     domain_full: "tucson.ibm.com"
-    server_ip: "9.11.66.234"
+    server_ip: "9.11.66.238"
   tasks:
     - name: Create temporary directory for certificate operations
       file:

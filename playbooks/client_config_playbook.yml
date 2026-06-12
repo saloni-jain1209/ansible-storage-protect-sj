@@ -27,7 +27,7 @@
         dest: /opt/tivoli/tsm/client/ba/bin/dsm.sys
         content: |
           SERVERNAME TSMDBMGR_TSMINST1
-          TCPSERVERADDRESS bonjovi-vm166.storage.tucson.ibm.com
+          TCPSERVERADDRESS bonjovi-vm170.storage.tucson.ibm.com
           COMMMETHOD tcpip
           TCPPORT 1500
         owner: root
@@ -56,7 +56,7 @@
  
     - name: Wait for port 1500 to be available
       wait_for:
-        host: "bonjovi-vm166.storage.tucson.ibm.com"
+        host: "bonjovi-vm170.storage.tucson.ibm.com"
         port: 1500
         state: started
         timeout: 300
