@@ -505,8 +505,8 @@ def read_json_file(path: str | Path, default: Optional[dict] = None, *, context:
 # -----------------------------
 
 def exec_run(context: dict[str, Any], cmd: list[str] | str, *, shell: bool = False, timeout: Optional[int] = None,
-             check: bool = False, capture_output: bool = True, user: Optional[str] = None, 
-             stdin_input: Optional[str] = None) -> dict[str, Any]:
+             check: bool = False, capture_output: bool = True, user: Optional[str] = None,
+             stdin_input: Optional[str] = None, new_console: bool = False) -> dict[str, Any]:
     # split for linux
     os_name = os_oskey(context=context)["os"]
     original_cmd = cmd
@@ -560,6 +560,14 @@ def exec_run(context: dict[str, Any], cmd: list[str] | str, *, shell: bool = Fal
         if stdin_input is not None:
             input_data = stdin_input if stdin_input.endswith('\n') else stdin_input + '\n'
         
+        # On Windows, give the child its own console so its stdin is a real
+        # console handle rather than the redirected WinRM pipe. The IBM DB2
+        # silent installer aborts ("Input redirection is not supported") when
+        # stdin is a pipe. No effect on Linux/AIX (gated on is_windows).
+        run_kwargs: dict[str, Any] = {}
+        if new_console and is_windows:
+            run_kwargs["creationflags"] = subprocess.CREATE_NEW_CONSOLE
+
         completed = subprocess.run(
             cmd,
             shell=shell,
@@ -568,6 +576,7 @@ def exec_run(context: dict[str, Any], cmd: list[str] | str, *, shell: bool = Fal
             capture_output=capture_output,
             text=True,
             input=input_data,
+            **run_kwargs,
         )
         if completed.returncode == 0:
             _info(context, "Exec OK: %s", cmd)

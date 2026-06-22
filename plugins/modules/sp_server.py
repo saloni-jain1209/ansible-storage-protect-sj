@@ -840,7 +840,7 @@ fi
             
         self.log.debug("Install command: {}".format(install_cmd))
         
-        resp = utils1.exec_run(cmd=install_cmd, context=self.ctx, shell=True)
+        resp = utils1.exec_run(cmd=install_cmd, context=self.ctx, shell=True, new_console=True)
         self.log.debug(resp)
 
         return resp["rc"] == 0
