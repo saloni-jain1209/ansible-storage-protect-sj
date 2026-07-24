@@ -15,10 +15,6 @@ offerings_metadata:
     profile: "IBM Storage Protect"
     id: "com.tivoli.dsm.devices"
     features: "com.tivoli.dsm.devices.main"
-  oc:
-    profile: "IBM Storage Protect"
-    id: "com.tivoli.dsm.gui.offering"
-    features: "com.tivoli.dsm.gui.main_asm,com.ibm.java.jre"
   ossm:
     profile: "IBM Storage Protect"
     id: "com.tivoli.dsm.ossm"
