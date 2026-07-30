@@ -31,7 +31,6 @@ offerings:
 #  license: true
   stagent: true
   devices: true
-  oc: true
   ossm: true
 
 # === configuration vars ======

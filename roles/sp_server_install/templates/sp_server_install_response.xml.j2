@@ -12,10 +12,6 @@
     <data key="user.license,com.tivoli.dsm.server" value="{{ license_value }}" />
     <data key="user.license_option,com.tivoli.dsm.server" value="{{ license_option }}" />
     {% endif %}
-    {% if offerings.oc %}
-    <data key="user.securePortNumber,com.tivoli.dsm.gui.offering" value="{{ secure_port }}" />
-    <data key="user.SSL_PASSWORD" value="{{ ssl_password }}" />
-    {% endif %}
     {% if offerings.ossm %}
     <data key="user.license,com.tivoli.dsm.ossm" value="san" />
     <data key="user.license_option,com.tivoli.dsm.ossm" value="a" />
